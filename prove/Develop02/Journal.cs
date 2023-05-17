@@ -14,7 +14,7 @@ class Journal
        {
             foreach (JournalEntry journalEntry in _journal)
             {
-                outputFile.WriteLine($"{journalEntry._date}|{journalEntry._prompt}|{journalEntry._entry}");
+                outputFile.WriteLine($"{journalEntry._date}|{journalEntry._prompt}|{journalEntry._entry}{journalEntry._dayRating}");
             }
        }
         
@@ -35,6 +35,7 @@ class Journal
             journalEntry._date =  parts[0];
             journalEntry._prompt = parts[1];
             journalEntry._entry = parts[2];
+            journalEntry._dayRating = parts[3];
 
             _journal.Add(journalEntry);
 

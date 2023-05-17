@@ -24,6 +24,7 @@ class Program
         userChoice = Console.ReadLine();
         Console.WriteLine();
         string userEntry;
+        string rating;
 
             if (userChoice == "1")
             {
@@ -34,8 +35,11 @@ class Program
                 Console.WriteLine($"{prompt}");
                 Console.Write("> ");
                 userEntry = Console.ReadLine();
-                // journal.AddToFile();
+                
+                Console.WriteLine("What would you rate today on a scale from 1-10? And why? ");
+                rating = Console.ReadLine();
 
+                newJournalEntry._dayRating = rating;
                 newJournalEntry._entry = userEntry;
                 journal._journal.Add(newJournalEntry);
             }

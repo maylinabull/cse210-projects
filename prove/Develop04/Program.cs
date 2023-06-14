@@ -24,7 +24,7 @@ class Program
             {
                 // start message 
                  Activities time = new Activities();
-                 Activities startMessage = new Activities("Breathing activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", time.GetTime());
+                 Activities startMessage = new Activities("Breathing activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.", time.GetTime());
                  startMessage.DisplayStartMessage();
                  time.SetTime();
 

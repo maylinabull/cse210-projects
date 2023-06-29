@@ -7,7 +7,7 @@ class Program
     static void Main(string[] args)
     {
         List<Goal> _goals = new List<Goal>();
-        // List of goals. Each individual goal has two variables concerning points:
+        // Tutor note: List of goals. Each individual goal has two variables concerning points:
         // Points and totalPoints. When the goal is completed, points is added to 
         // totalPoints. 
 
@@ -97,11 +97,13 @@ class Program
 
             using (StreamWriter outputFile = new StreamWriter(fileName))
             {
+                outputFile.WriteLine(_totalPoints);
                 foreach (Goal goal in _goals)
                 {
                     outputFile.WriteLine(goal.GetSaveFormat());
                 }
             }
+            Console.WriteLine($"You currently have {_totalPoints} points");
         }
         //load 
         else if (userChoice == "4")
@@ -121,11 +123,12 @@ class Program
                 string _description = parts[2];
                 string _points = parts[3];
                 string _status = parts[4];
-                
+
                 // create a goal before you add it to the list.
                 Goal goal = new Goal();
                 _goals.Add(goal);
             }            
+            Console.WriteLine($"You currently have {_totalPoints} points");
         }
         // allow the user to record an event
         else if (userChoice == "5")
@@ -157,10 +160,25 @@ class Program
         }
         }
 
+        // extra reflection on goals
+        Console.Clear();
+        Console.WriteLine("Want to reflect on your goals? yes/no");
+        string response = Console.ReadLine();
+        if (response == "yes")
+        {
+            Console.WriteLine("Spend a few minutes to reflect on the goals you did or did not accomplish. ");
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine("Thank you for using Eternal Quest");
+        }
+    
 
     }
     static void AddPoints(int points)
     {
          _totalPoints += points;
     }
+
 }

@@ -5,9 +5,15 @@ class ChecklistGoal : Goal
     private int _numTimes;
     private int _count;
 
+    // 1st time goal is completed, GetPoints just returns _points. increment count so now its 1
+    // 2nd time goal is completed, GetPoints just returns _points increment count so now its 2
+    // 3rd time goal is completed, GetPoints returns _points + bonus because count is 3, and so it _numTimes.
+    // we also set status to true. 
+
 
     public ChecklistGoal(string type, string name, string description, int points, int numTimes, int count, int bonus, bool status) : base(type, name, description, points, status)
     {
+        _type = type;
         _status = false;
         _numTimes = numTimes;
         _count = count;
@@ -23,7 +29,7 @@ class ChecklistGoal : Goal
 
     public override string GetSaveFormat()
     {
-        return $"{base.GetSaveFormat()}|{_count}/{_numTimes}|{_bonus}";
+        return $"{base.GetSaveFormat()}|{_count}/{_numTimes}|{_bonus} bonus points for completion";
     }
 
     // if user completes checklist goal add bonus
@@ -47,7 +53,7 @@ class ChecklistGoal : Goal
         if (_count == _numTimes)
         {
             _status = true;
-            _points = _points + _bonus;
+            _points += _bonus; 
             
             Console.WriteLine($"Congratulations! You have earned {_points} points!");
         }
@@ -55,7 +61,8 @@ class ChecklistGoal : Goal
         {
             Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!");
         }
-        Console.WriteLine($"You now have {GetTotalPoints()} points.");
+         _count ++;
+        // Console.WriteLine($"You now have {GetTotalPoints()} points.");
     }
     
     public override void IsComplete()
@@ -73,7 +80,8 @@ class ChecklistGoal : Goal
 
         public override string GetPrintFormat()
     {
-        if (_status == true){
+        if (_status == true ||_count == _numTimes)
+        {
 
             return $"[X] {_name} ({_description}) -- Currently complete {_count}/{_numTimes}";
         }

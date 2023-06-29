@@ -7,7 +7,7 @@ class Goal
     protected string _name;
     protected int _points;
     protected bool _status;
-    protected int _totalPoints;
+
 
     public Goal()
     {
@@ -50,21 +50,21 @@ class Goal
     {
         return _points;
     }
-    public void SetTotalPoints()
-    {
-        _totalPoints = 0;
-    }
-    public void AddPoints(int points)
-    {
-        _totalPoints += points;
-    }
-    public int GetTotalPoints()
-    {
-        return _totalPoints;
-    }
+    // public void SetTotalPoints()
+    // {
+    //     _totalPoints = 0;
+    // }
+    // public void AddPoints(int points)
+    // {
+    //     _totalPoints += points;
+    // }
+    // public int GetTotalPoints()
+    // {
+    //     return _totalPoints;
+    // }
 
     public virtual string GetSaveFormat() {
-        return " ";
+        return $"{_type}|{_name}|{_description}|{_points}|{_status}";
     }
 
     public virtual string GetPrintFormat()

@@ -14,7 +14,7 @@ class SimpleGoal : Goal
     {
         _status = true; 
         Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!");
-        Console.WriteLine($"You now have {GetTotalPoints()} points.");
+        // Console.WriteLine($"You now have {GetTotalPoints()} points.");
     }
     
     public override void IsComplete()

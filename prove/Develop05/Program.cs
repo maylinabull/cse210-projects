@@ -2,9 +2,14 @@ using System;
 
 class Program
 {
+    static int _totalPoints = 0;
+
     static void Main(string[] args)
     {
         List<Goal> _goals = new List<Goal>();
+        // List of goals. Each individual goal has two variables concerning points:
+        // Points and totalPoints. When the goal is completed, points is added to 
+        // totalPoints. 
 
         string userChoice = "";
         while (userChoice != "6")
@@ -75,10 +80,11 @@ class Program
         else if (userChoice == "2")
         {
             Goal goals = new Goal();
-            Console.WriteLine($"You currently have {goals.GetTotalPoints()} points");
+            Console.WriteLine($"You currently have {_totalPoints} points");
             Console.WriteLine("The goals are: ");
-            for (int count = 0; count < _goals.Count; count++){
-            Console.WriteLine($"{count + 1}. {_goals[count].GetPrintFormat()}");
+            for (int count = 0; count < _goals.Count; count++)
+            {
+                Console.WriteLine($"{count + 1}. {_goals[count].GetPrintFormat()}");
             }
         }
         //save
@@ -100,8 +106,8 @@ class Program
         //load 
         else if (userChoice == "4")
         {
-            Goal goal = new Goal();
-            Console.WriteLine($"You currently have {goal.GetTotalPoints()} points");
+            
+            Console.WriteLine($"You currently have {_totalPoints} points");
             Console.WriteLine("What is the filename for the goal file? ");
             string filename = Console.ReadLine();
             string[] lines = System.IO.File.ReadAllLines(filename);
@@ -115,19 +121,30 @@ class Program
                 string _description = parts[2];
                 string _points = parts[3];
                 string _status = parts[4];
-
+                
+                // create a goal before you add it to the list.
+                Goal goal = new Goal();
                 _goals.Add(goal);
             }            
         }
-        //record
+        // allow the user to record an event
         else if (userChoice == "5")
         {
-            Goal goals = new Goal();
-            Console.WriteLine($"You currently have {goals.GetTotalPoints()} points");
+            // Goal goals = new Goal();
+            // Console.WriteLine($"You currently have {goals.GetTotalPoints()} points");
             Console.WriteLine("Which goal did you accomplish?");
             int accompGoal = int.Parse(Console.ReadLine());
-            goals.RecordEvent();
-        
+            // how do I retrieve points from the goal the user specifies? how would I add points from mutliple completed goals?
+            // how would I add up checklist goal points and bonus points?
+            // goals.AddPoints();
+            // goals.RecordEvent();
+            _goals[accompGoal - 1].RecordEvent();
+            int points = _goals[accompGoal - 1].GetPoints(); // Get the points value for this goal
+            AddPoints(points); // Since we are recording the goal as completed, this means
+            // the user is rewarded the points this goal is worth, so we 
+            // add the points for this goal to our total points. 
+            Console.WriteLine($"You currently have {_totalPoints} points");
+
          }
         //quit
         else if (userChoice == "6")
@@ -141,5 +158,9 @@ class Program
         }
 
 
+    }
+    static void AddPoints(int points)
+    {
+         _totalPoints += points;
     }
 }

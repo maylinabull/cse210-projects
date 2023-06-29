@@ -1,1 +1,2 @@
-Simple Goal: |watch a movie|relax and watch movie w/ family|20|False
+Simple Goal: |create a business|create a successful small business|30|True
+Checklist Goal: |watch Avatar series|watch all of Avatar series|30|False|0/3|10 bonus points for completion

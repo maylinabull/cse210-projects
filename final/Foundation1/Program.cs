@@ -24,14 +24,24 @@ class Program
        _videos.Add(video3); 
 
        foreach (Video video in _videos)
-       {
+        {
         Console.WriteLine($"Title: {video.GetTitle()}");
         Console.WriteLine($"Author: {video.GetAuthor()}");
         Console.WriteLine($"Length in seconds: {video.GetLength()}");
         Console.WriteLine($"Number of comments: {video.GetNumComments()}");
-       }
-    //    foreach comment display the name and text
-    
+        Console.WriteLine("");
+        // Console.WriteLine($"Comments: {video.DisplayComments()}");
+        Console.WriteLine($"Comments ");
+        foreach (Comments comment in video._comments)
+        {
+            Console.WriteLine($"Name: {comment.GetName()}");
+            Console.WriteLine($"{comment.GetText()}");
+            Console.WriteLine(" ");
+        }
+        }
+
+
+
 
 
     }

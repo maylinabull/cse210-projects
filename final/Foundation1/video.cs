@@ -5,7 +5,7 @@ class Video
     private string _title;
     private string _author; 
     private int _length;
-    private List<Comments> _comments = new List<Comments>();
+    public List<Comments> _comments = new List<Comments>();
 
     public Video(string title, string author, int length)
     {
@@ -13,6 +13,10 @@ class Video
         _author = author;
         _length = length;
         _comments = new List<Comments>();
+    }
+    public Video()
+    {
+        
     }
     public string GetTitle()
     {
@@ -35,11 +39,11 @@ class Video
     {
         _comments.Add(new Comments(name, text));
     }
-    // public void Display(string name, string text)
+    // public void DisplayComments()
     // {
     //     foreach (Comments comment in _comments)
     //     {
-    //        Console.WriteLine(name, text); 
+    //        Console.WriteLine(comment);
     //     }
     // }
 }

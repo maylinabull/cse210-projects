@@ -14,12 +14,11 @@ class Order
     public decimal GetTotalCost()
     {
         decimal total_cost = 0;
-        Customer customer = new Customer();
         foreach (Product product in _products)
         {
             total_cost += product.GetPrice();
         }
-        if (customer.IsUS())
+        if (_customer.IsUS())
         {
             total_cost += 5;
         }
@@ -31,18 +30,29 @@ class Order
     public string GetPackingLabel()
     {
         // name and product id of each product in the order
-        Product product = new Product();
-        return product.GetName() + " " + product.GetProductId();
+        string packing_label = " ";
+        foreach (Product product in _products)
+        {
+           packing_label = product.GetName() + product.GetProductId();
+        }
+        return packing_label;
     }
     public string GetShippingLabel()
     {
         // name and address of the customer 
-        Customer customer = new Customer();
-        return customer.GetName() + " " + customer.GetFullAddress();
+        return "\n" + _customer.GetName() + "\n" + _customer._address.GetFullAddress();
     }
     public List<Product> Products ()
     {
         return _products;
+    }
+    public Customer GetCustomer()
+    {
+        return _customer;
+    }
+    public void SetCustomer(Customer customer)
+    {
+        _customer = customer;
     }
 
 }

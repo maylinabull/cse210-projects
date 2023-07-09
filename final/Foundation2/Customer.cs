@@ -16,8 +16,7 @@ class Customer
     }
     public bool IsUS()
     {   
-       Address address = new Address(); 
-        return address.IsUS();
+        return _address.IsUS();
     }
     public string GetName()
     {

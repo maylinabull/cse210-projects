@@ -16,7 +16,7 @@ class Product
     }
     public Product()
     {
-        
+
     }
 
     public string GetName()
@@ -37,16 +37,17 @@ class Product
     }
     public decimal GetPrice()
     {
-        return _price;
+        return _price * _quantity;
     }
-    public void SetPrice(decimal price, int quantity)
+    public void SetPrice(decimal price)
     {
-        _price = price * quantity;
+        _price = price;
     }
     public int GetQuantity()
     {
         return _quantity;
     }
+
     public void SetQuantity(int quantity)
     {
         _quantity = quantity;

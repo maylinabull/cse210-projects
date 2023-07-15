@@ -8,8 +8,8 @@ class Program
         Address address1 = new Address("111 Tree Ave.", "Kansas City", "MO", "USA");
         Customer customer1 = new Customer("Robert Williams", address1);
         List<Product> customers_products1 = new List<Product>();
-        Product product1 = new Product("Pencils", 1, 2.25m, 1);
-        Product product2 = new Product("Erasers", 2, .25m, 2);
+        Product product1 = new Product("Pencils", 1, 2.25, 1);
+        Product product2 = new Product("Erasers", 2, .25, 2);
         customers_products1.Add(product1);
         customers_products1.Add(product2);
         Order order1 = new Order(customers_products1, customer1);
@@ -18,9 +18,9 @@ class Program
         Address address2 = new Address("222 Flower St.", "Tokyo", "Tokyo-to", "Japan");
         Customer customer2 = new Customer("Anya Forger", address2);
         List<Product> customers_products2 = new List<Product>();
-        Product product3 = new Product("Coloring book", 3, 2.00m, 3);
-        Product product4 = new Product("Peanuts", 4, 50.00m, 50);
-        Product product5 = new Product("Headband", 5, 3.25m, 1);
+        Product product3 = new Product("Coloring book", 3, 2.00, 3);
+        Product product4 = new Product("Peanuts", 4, 50.00, 50);
+        Product product5 = new Product("Headband", 5, 3.25, 1);
         customers_products2.Add(product3);
         customers_products2.Add(product4);
         customers_products2.Add(product5);

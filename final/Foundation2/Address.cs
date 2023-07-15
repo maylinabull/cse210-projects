@@ -21,7 +21,14 @@ class Address
 
     public bool IsUS()
     {
-        return _country == "USA";
+        if (_country == "USA")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public string GetFullAddress()
     {

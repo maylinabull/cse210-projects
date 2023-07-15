@@ -11,21 +11,26 @@ class Order
         _products = new List<Product>();
 
     }
-    public decimal GetTotalCost()
+    public double GetTotalCost()
     {
-        decimal total_cost = 0;
+        double total_cost = 0;
+        int shipping = 0;
+        
         foreach (Product product in _products)
         {
-            total_cost += product.GetPrice();
-        }
-        if (_customer.IsUS())
+            double product_price = product.CalculatePrice();
+            total_cost += product_price;
+        if (_customer.IsUS() == true)
         {
-            total_cost += 5;
+            shipping = 5;
         }
-        else {
-            total_cost += 35;
+        else
+        {
+            shipping = 35;
         }
-        return total_cost;
+        }
+        return total_cost + shipping;
+
     }
     public string GetPackingLabel()
     {

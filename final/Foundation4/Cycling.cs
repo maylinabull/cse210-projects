@@ -21,6 +21,6 @@ class Cycling : Activity
     }
     public override string GetSummary()
     {
-        return $"{base.GetSummary()} - Distance: {GetDistance()} miles, Speed: {_speed} mph, Pace: {GetPace()} min per mile";
+        return $"{base.GetSummary()} - Distance: {GetDistance()} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
     }
 }

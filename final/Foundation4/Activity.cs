@@ -39,6 +39,6 @@ class Activity
     }
     public virtual string GetSummary()
     {
-        return $"{_date.ToString("dd MMM yyy")} {GetType().Name} ({_length} min)";
+        return $"{_date.ToString("dd MMM yyy")} {GetType().Name} ({GetLength()} min)";
     }
 }

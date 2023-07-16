@@ -13,6 +13,6 @@ class Lecture : Event
     }
     public override string GetFullDetails()
     {
-        return $"{base.GetFullDetails()}, Speaker: {_speaker}, Capacity: {_capacity}";
+        return $"{base.GetFullDetails()}\n Speaker: {_speaker}\n Capacity: {_capacity}";
     }
 }

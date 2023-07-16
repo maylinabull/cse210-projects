@@ -21,7 +21,7 @@ class Event
 
     public string GetStandardDetails()
     {
-        return $"Title: {_title}\n Description: {_description}\n Date: {_date}\n Time: {_time}\n Address: {_address.GetAddress()}";
+        return $"Title: {_title}\n Description: {_description}\n Date: {_date.ToString("MM/dd/yyy")}\n Time: {_time}\n Address: {_address.GetAddress()}";
     }
 
     public virtual string GetFullDetails()
@@ -30,6 +30,6 @@ class Event
     }
     public string GetShortDescription()
     {
-        return $"Type: {_type}\n Title: {_title}\n Date: {_date}";
+        return $"Type: {_type}\n Title: {_title}\n Date: {_date.ToString("MM/dd/yyy")}";
     }
 }

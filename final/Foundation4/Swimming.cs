@@ -21,6 +21,6 @@ class Swimming : Activity
     }
     public override string GetSummary()
     {
-        return $"{base.GetSummary()} - Distance {GetDistance()} km, Speed {GetSpeed()} kph, Pace {GetPace()} min per km";
+        return $"{base.GetSummary()} - Distance: {GetDistance()} km, Speed: {GetSpeed()} kph, Pace: {GetPace()} min per km";
     }
 }

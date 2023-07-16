@@ -17,10 +17,10 @@ class Cycling : Activity
     }
     public override double GetPace()
     {
-        return 60 / _speed;
+        return _length / GetDistance();
     }
     public override string GetSummary()
     {
-        return $"{base.GetSummary()} - Distance {GetDistance()} miles, Speed {_speed} mph, Pace: {GetPace()} min per mile";
+        return $"{base.GetSummary()} - Distance: {GetDistance()} miles, Speed: {_speed} mph, Pace: {GetPace()} min per mile";
     }
 }

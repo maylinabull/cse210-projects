@@ -13,15 +13,15 @@ class Running : Activity
     }
     public  override double GetSpeed()
     {
-        return _distance / _length * 60;
+        return (_distance / _length) * 60;
     }
     public override double GetPace()
     {
-        return _length / _distance;
+        return  _length / _distance;
     }
     public override string GetSummary()
     {
-        return $"{base.GetSummary()} - Distance {_distance} miles, Speed {GetSpeed()} mph, Pace: {GetPace()} min per mile";
+        return $"{base.GetSummary()} - Distance: {_distance} miles, Speed: {GetSpeed()} mph, Pace: {GetPace()} min per mile";
     }
 
 }

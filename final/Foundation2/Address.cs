@@ -33,7 +33,7 @@ class Address
     public string GetFullAddress()
     {
         return GetStreetAddress() + "\n"
-        + GetCity() + "," + GetState() + " " + GetCountry();
+        + GetCity() + ", " + GetState() + " " + GetCountry();
     }
     public string GetStreetAddress()
     {

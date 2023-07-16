@@ -37,15 +37,11 @@ class Product
     }
     public double GetPrice()
     {
-        return _price;
+        return Math.Round((_price * _quantity), 2);
     }
     public void SetPrice(double price)
     {
         _price = price;
-    }
-    public double CalculatePrice()
-    {
-        return Math.Round((_price * _quantity),2);
     }
     public int GetQuantity()
     {

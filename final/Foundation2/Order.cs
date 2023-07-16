@@ -2,34 +2,32 @@ using System;
 
 class Order
 {
-    private List<Product> _products = new List<Product>();
+    private List<Product> _products;
     private Customer _customer;
 
-    public Order(List<Product> _products, Customer customer)
+    public Order(List<Product> products, Customer customer)
     {
         _customer = customer;
-        _products = new List<Product>();
+        _products = products;
 
     }
     public double GetTotalCost()
     {
         double total_cost = 0;
-        int shipping = 0;
-        
+
         foreach (Product product in _products)
         {
-            double product_price = product.CalculatePrice();
-            total_cost += product_price;
-        if (_customer.IsUS() == true)
+            total_cost += product.GetPrice();
+        }
+        if (_customer.IsUS())
         {
-            shipping = 5;
+            total_cost += 5;
         }
         else
         {
-            shipping = 35;
+            total_cost += 35;
         }
-        }
-        return total_cost + shipping;
+        return total_cost;
 
     }
     public string GetPackingLabel()
@@ -38,7 +36,7 @@ class Order
         string packing_label = " ";
         foreach (Product product in _products)
         {
-           packing_label = product.GetName() + product.GetProductId();
+           packing_label += "\n Product - " + product.GetName() + ", Product ID -  " + product.GetProductId() + "\n";
         }
         return packing_label;
     }

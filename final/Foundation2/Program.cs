@@ -19,7 +19,7 @@ class Program
         Customer customer2 = new Customer("Anya Forger", address2);
         List<Product> customers_products2 = new List<Product>();
         Product product3 = new Product("Coloring book", 3, 2.00, 3);
-        Product product4 = new Product("Peanuts", 4, 50.00, 50);
+        Product product4 = new Product("Peanuts", 4, 2.00, 50);
         Product product5 = new Product("Headband", 5, 3.25, 1);
         customers_products2.Add(product3);
         customers_products2.Add(product4);
@@ -27,14 +27,14 @@ class Program
         Order order2 = new Order(customers_products2, customer2);
 
         // get the packing label, the shipping label, and the total price of the order, and display the results of these methods.
-        Console.WriteLine("Order #1: ");
-        Console.WriteLine($"Total Cost: {order1.GetTotalCost()}");
+        Console.WriteLine("ORDER #1: ");
+        Console.WriteLine($"Total Cost: ${order1.GetTotalCost()}");
         Console.WriteLine($"Packing Label: {order1.GetPackingLabel()}");
         Console.WriteLine($"Shipping Label: {order1.GetShippingLabel()}");
         Console.WriteLine("");
 
-        Console.WriteLine("Order #2: ");
-        Console.WriteLine($"Total Cost: {order2.GetTotalCost()}");
+        Console.WriteLine("ORDER #2: ");
+        Console.WriteLine($"Total Cost: ${order2.GetTotalCost()}");
         Console.WriteLine($"Packing Label: {order2.GetPackingLabel()}");
         Console.WriteLine($"Shipping Label: {order2.GetShippingLabel()}");
         Console.WriteLine("");
